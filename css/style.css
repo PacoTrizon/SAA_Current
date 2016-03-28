@@ -1,0 +1,57 @@
+.errorRequerido{
+    color: red;
+}
+.scrollExpedientes{
+    height: 300px;
+    width: auto;
+    overflow: auto;
+}
+.scrollExpedientesDevoluciones{
+    height: 430px;
+    width: auto;
+    overflow: auto;
+}
+.scrollDocumentos{
+    height: 500px;
+    width: auto;
+    overflow: auto;
+}
+.size_checkBox{
+    height: 20px;
+    width: 64px;
+}
+.botonEstatus{
+    width: 262px;
+}
+.boton_estatus_perfil{
+    width: 110px;
+}
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+    height: 100px;
+}
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+    border-style: dotted;
+    border-width: 1px 0;
+    margin: 18px 0;
+} 
+.ancho_listado_descripcion{
+    width: 90%
+}
+.ancho_listado_checkbox{
+    width: 10%
+}
