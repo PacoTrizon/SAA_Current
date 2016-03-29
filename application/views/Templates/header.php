@@ -29,6 +29,8 @@
             <strong><center><?php echo $this->session->flashdata('_flash_message_error'); ?></center></strong>
           </div>
       <?php endif; ?>
+
+
       <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
         <nav class="navbar navbar-default" style="height: 196px;">
             <div class="container-fluid">
@@ -173,14 +175,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown" >
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Concentración <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li >
-                                <a href="<?php echo base_url('investigadores/index'); ?>">Concentración</a>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             </div>
@@ -188,3 +182,11 @@
     </header>
 </head>
 <body>
+  <div class="text-align:center col-lg-12 ">
+    <div class="col-lg-4">
+    </div>
+    <div align="center" id="alertTransf" class="alert alert-info alert-dismissable col-lg-4"  >
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Transferencia Exitosa</strong>
+    </div>
+  </div>

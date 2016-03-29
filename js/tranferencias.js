@@ -1,5 +1,6 @@
 jQuery(document).ready(function()
 {
+  $("#alertTransf").attr("hidden","hidden");
   var uri = $("#base_url").val();
   $("#buscarTTD").autocomplete({
     source : uri+'Dependencias/busquedaPadre',
@@ -11,7 +12,6 @@ jQuery(document).ready(function()
 
 function getTranferenciaTramite()
 {
-
   var caja = $("#buscarTT").val();
   var uri = $("#base_url").val();
   $("#tbodyTT").empty();
@@ -65,6 +65,8 @@ function transferir()
       type : 'post',
       dataType : 'html',
       success : function(html) {
+        $("#alertTransf").removeAttr("hidden");
+        getTranferenciaTramite();
         console.log(html);
       },
       error : function(xhr, status) {
@@ -89,7 +91,8 @@ function transferirRev()
       type : 'post',
       dataType : 'html',
       success : function(html) {
-        console.log(html);
+        $("#alertTransf").removeAttr("hidden");
+        getTranferenciaTramiteDep();
       },
       error : function(xhr, status) {
           console.log(status);

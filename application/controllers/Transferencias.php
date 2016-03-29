@@ -8,7 +8,7 @@ class Transferencias extends CI_Controller {
         $this->load->library("pagination");
         $this->load->model('TransferenciaModel');
     }
-    //estados tramite = 1, Recepcion = 2, revision 3
+    //estados tramite = 1, Recepcion = 2, revision 3,concentracion 4
     public function tramite()
     {
       $data = array();
@@ -46,7 +46,7 @@ class Transferencias extends CI_Controller {
       $data = array();
       $data['nombre'] = "Concentración";
       $data['std'] = base64_encode(4*7);
-      $data['std2'] = 5;
+      $data['std2'] = 0;
       $this->load->view('Templates/header');
       $this->load->view('listTransferenciaTramiteDep',$data);
       $this->load->view('Templates/footer');
