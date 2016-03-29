@@ -2,14 +2,14 @@
     <head>
         <title>SAA2</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="/SAA/css/bootstrap.min.css" rel="stylesheet" >
-        <link href="/SAA/css/jquery.growl.css" rel="stylesheet" >
-        <link href="/SAA/css/jquery-ui.css" rel="stylesheet" >
-        <link href="/SAA/css/style.css" rel="stylesheet" >
+        <link href="<?php echo base_url('css/bootstrap.min.css')?>" rel="stylesheet" >
+        <link href="<?php echo base_url('css/jquery.growl.css')?>" rel="stylesheet" >
+        <link href="<?php echo base_url('css/jquery-ui.css')?>" rel="stylesheet" >
+        <link href="<?php echo base_url('css/style.css')?>" rel="stylesheet" >
 
-        <script type="text/javascript" src="/SAA/js/jquery.min.js"></script>
-        <script type="text/javascript" src="/SAA/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/SAA/js/jquery.growl.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.growl.js')?>"></script>
         <script type="text/javascript" src="<?php echo base_url('js/jquery-ui-1.8.2.custom.min.js')?>"></script>
         <script type="text/javascript" src="<?php echo base_url('js/bootstrap-filestyle.min.js')?>"></script>
         <script type="text/javascript" src="<?php echo base_url('js/autocomplete.js')?>"></script>
@@ -41,8 +41,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="col-lg-12 col-lg-offset-4" >
-                        <span> <a class="navbar-brand " href="#"> <img src="/SAA/img/sistema-de-admin-de-archivos.png" class="img-responsive" style="height: 129px; width: 299px;"></a></span>
-                        <a class="navbar-brand" href="#"> <img src="/SAA/img/logoCuliacan.png" class="img-responsive" style="height: 108px;"></a>
+                        <span> <a class="navbar-brand " href="#"> <img src="<?php echo base_url('img/sistema-de-admin-de-archivos.png')?>" class="img-responsive" style="height: 129px; width: 299px;"></a></span>
+                        <a class="navbar-brand" href="#"> <img src="<?php echo base_url('img/logoCuliacan.png')?>" class="img-responsive" style="height: 108px;"></a>
                     </div>
 
                 </div>

@@ -3,15 +3,15 @@
         <title>SAA</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/SAA/css/bootstrap.min.css" rel="stylesheet" >
-        <link href="/SAA/css/jquery.growl.css" rel="stylesheet" >
-        <script type="text/javascript" src="/SAA/js/jquery-2.2.0.min.js"></script>
-        <script type="text/javascript" src="/SAA/js/jquery.js"></script>
-        <script type="text/javascript" src="/SAA/js/jquery.min.js"></script>
-        <!--<script type="text/javascript" src="/SAA/js/angular.min.js"></script>
-        <script type="text/javascript" src="/SAA/js/angular-route.js"></script>-->
-        <script type="text/javascript" src="/SAA/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/SAA/js/jquery.growl.js"></script>
+        <link href="<?php echo base_url('css/bootstrap.min.css')?>" rel="stylesheet" >
+        <link href="<?php echo base_url('css/jquery.growl.css')?>" rel="stylesheet" >
+        <script type="text/javascript" src="<?php echo base_url('js/jquery-2.2.0.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.min.js')?>"></script>
+        <!--<script type="text/javascript" src="<?php echo base_url('js/angular.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/angular-route.js')?>"></script>-->
+        <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.growl.js')?>"></script>
 
     </head>
 
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="col-md-4 col-md-push-4">
                 <div>
-                    <img src="/SAA/img/sistema-de-admin-de-archivos.png" class="img-responsive">
+                    <img src="<?php echo base_url('img/sistema-de-admin-de-archivos.png')?>" class="img-responsive">
                 </div>
             </div>
         </div>
