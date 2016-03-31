@@ -10,9 +10,22 @@
                 </div>
             </div>
 
-            <div class="col-lg-2" style="margin-top: 13px;">
-              <input type="button" class="btn btn-primary" onclick="transferirRev()" value="Transferir">
-            </div>
+            <?php if ($std != 'Mjg='): ?>
+              <div class="col-lg-2" style="margin-top: 13px;">
+                <input type="button" class="btn btn-primary" onclick="transferirRev()" value="Transferir">
+              </div>
+            <?php endif; ?>
+            <?php if ($std == 'Mjg='): ?>
+              <div class="col-lg-1" style="margin-top: 13px;">
+                <input type="button" class="btn btn-danger" style="display:inline;"onclick="transferirRev()" value="Eliminar">
+              </div>
+              <div class="col-lg-2" style="margin-top: 13px;">
+                <input type="button" class="btn btn-success" onclick="alert('historico')" value="Historico">
+              </div>
+            <?php endif; ?>
+
+
+
     </div>
     <div class="panel-body">
         <input type="hidden" id="tipoed" >

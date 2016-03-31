@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.0.27',
-	'username' => 'zepeda',
-	'password' => 'dostics',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => 'kmitnick',
 	'database' => 'archivo_municipal',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

@@ -24,7 +24,7 @@ class Transferencias extends CI_Controller {
       $data = array();
       $data['nombre'] = "Recepcion";
       $data['std'] = base64_encode(2*7);
-      $data['std2'] = 3;
+      $data['std2'] = base64_encode(3*7);
       $this->load->view('Templates/header');
       $this->load->view('listTransferenciaTramiteDep',$data);
       $this->load->view('Templates/footer');
@@ -35,7 +35,7 @@ class Transferencias extends CI_Controller {
       $data = array();
       $data['nombre'] = "Revision";
       $data['std'] = base64_encode(3*7);
-      $data['std2'] = 4;
+      $data['std2'] = base64_encode(4*7);
       $this->load->view('Templates/header');
       $this->load->view('listTransferenciaTramiteDep',$data);
       $this->load->view('Templates/footer');
@@ -46,7 +46,7 @@ class Transferencias extends CI_Controller {
       $data = array();
       $data['nombre'] = "Concentración";
       $data['std'] = base64_encode(4*7);
-      $data['std2'] = 0;
+      $data['std2'] = base64_encode(0*7);
       $this->load->view('Templates/header');
       $this->load->view('listTransferenciaTramiteDep',$data);
       $this->load->view('Templates/footer');
@@ -58,7 +58,11 @@ class Transferencias extends CI_Controller {
       if ($this->input->post('transf')) {
         $t = $this->input->post('transf');
         $tramites =$this->TransferenciaModel->transferirRec($t,2);
-        $result = "Cambio Exitoso";
+        if ($tramites) {
+          $result = "Cambio Exitoso";
+        }else {
+          $result = "error";
+        }
       }else {
         $result = "error";
       }
@@ -70,9 +74,23 @@ class Transferencias extends CI_Controller {
     {
       if ($this->input->post('transf')) {
         $t = $this->input->post('transf');
-        $std = $this->input->post('est');
-        $tramites =$this->TransferenciaModel->transferirRec($t,$std);
-        $result = "Cambio Exitoso";
+        if ($this->input->post('est')) {
+          $std = $this->input->post('est');
+          $std = (base64_decode($std))/7;
+          if ($std >= 0 && $std <= 4) {
+            $tramites =$this->TransferenciaModel->transferirRec($t,$std);
+            if ($tramites) {
+              $result = "Cambio Exitoso";
+            }else {
+              $result = "error";
+            }
+          }else {
+            $result = "error";
+          }
+        }else {
+          $result = "error";
+        }
+
       }else {
         $result = "error";
       }

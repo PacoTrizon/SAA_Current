@@ -58,21 +58,24 @@ function transferir()
     data['transf[]'].push($(this).val());
     arreglo.push($(this).val());
   });
-  var uri = $("#base_url").val();
-  $.ajax({
-      url : uri+'Transferencias/transferirRec',
-      data : {transf: arreglo},
-      type : 'post',
-      dataType : 'html',
-      success : function(html) {
-        $("#alertTransf").removeAttr("hidden");
-        getTranferenciaTramite();
-        console.log(html);
-      },
-      error : function(xhr, status) {
-          console.log(status);
-      },
-  });
+  if (arreglo.length > 0 ) {
+    var uri = $("#base_url").val();
+    $.ajax({
+        url : uri+'Transferencias/transferirRec',
+        data : {transf: arreglo},
+        type : 'post',
+        dataType : 'html',
+        success : function(html) {
+            $("#alertTransf").removeAttr("hidden");
+            getTranferenciaTramite();
+
+          console.log(html);
+        },
+        error : function(xhr, status) {
+            console.log(status);
+        },
+    });
+  }
 }
 
 function transferirRev()
@@ -84,18 +87,21 @@ function transferirRev()
     data['transf[]'].push($(this).val());
     arreglo.push($(this).val());
   });
-  var uri = $("#base_url").val();
-  $.ajax({
-      url : uri+'Transferencias/transferirRev',
-      data : {transf: arreglo,est: std},
-      type : 'post',
-      dataType : 'html',
-      success : function(html) {
-        $("#alertTransf").removeAttr("hidden");
-        getTranferenciaTramiteDep();
-      },
-      error : function(xhr, status) {
-          console.log(status);
-      },
-  });
+  if (arreglo.length > 0) {
+
+    var uri = $("#base_url").val();
+    $.ajax({
+        url : uri+'Transferencias/transferirRev',
+        data : {transf: arreglo,est: std},
+        type : 'post',
+        dataType : 'html',
+        success : function(html) {
+          $("#alertTransf").removeAttr("hidden");
+          getTranferenciaTramiteDep();
+        },
+        error : function(xhr, status) {
+            console.log(status);
+        },
+    });
+  }
 }
