@@ -144,7 +144,7 @@ class TramiteConcentracionModel extends CI_Model {
     }*/
     public function buscarId($id)
     {
-      $query ="call getTramites($id)";
+      $query ="call getTramites('$id');";
       $result = $this->db->query($query)->row();
       $this->db->close();
       return $result;
@@ -157,6 +157,13 @@ class TramiteConcentracionModel extends CI_Model {
         $this->db->where('renglon', $datos->renglon);
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function getDocs(){
+      $query = "select*from documentos";
+      $result = $this->db->query($query)->result();
+      $this->db->close();
+      return $result;
     }
 
     public function buscarDescripcion($descripcion) {

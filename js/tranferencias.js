@@ -105,3 +105,9 @@ function transferirRev()
     });
   }
 }
+
+function adddocs(event)
+{
+  var html = '<tr><td>'+event.value+'</td>/tr>' ;
+  $("#tbodyDoc").append(html);
+}

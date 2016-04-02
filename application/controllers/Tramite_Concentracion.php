@@ -176,6 +176,7 @@ class Tramite_concentracion extends CI_Controller {
           $id = base64_decode($this->input->get('id'));
           $result = $this->TramiteConcentracionModel->buscarId($id);
           $data['result'] = $result;
+          $data['docs'] = $this->TramiteConcentracionModel->getDocs();
           $this->load->view('Templates/header',$data);
           $this->load->view('frmEditarTramiteConcentracion');
           $this->load->view('Templates/footer');

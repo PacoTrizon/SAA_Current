@@ -173,22 +173,27 @@
         <div class="form-group has-feedback">
             <label for="busqueda_documento" class="col-sm-3 control-label">Agregar Documento:</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Buscar..." id="busqueda_documento" name="busqueda_documento" minlength="3"/>
-                <span class="glyphicon form-control-feedback"></span>
+              <select class="form-control" id="documentosS" onchange="adddocs(this)">
+                <option value="">Documentos</option>
+                <?php foreach ($docs as $key): ?>
+
+                  <option value="<?php echo $key->descripcion ?>"><?php echo $key->descripcion ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
         </div>
         <div class="scrollDocumentos">
             <table class="table table-striped">
-                <thead>
+                <thead >
                     <tr>
                         <th>Nombre</th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodyDoc">
                     <tr>
                         <td><?php echo $result->archivo_expediente?></td>
-                        <td><button ng-click="buscarHistorico(documento)" type="button" title="Describir Documento" class="btn btn-primary glyphicon glyphicon-list-alt"></button>
+                        <td><button data-toggle="modal" data-target="#MyModal"type="button" title="Describir Documento" class="btn btn-primary glyphicon glyphicon-list-alt"></button>
                             <span><button ng-click="remover_documento($index)" type="button" title="Eliminar Documento" class="btn btn-danger glyphicon glyphicon-remove"></button></span>
                         </td>
                     </tr>
@@ -205,7 +210,12 @@
         </div>
     </form>
 
-    <modal title="HISTORICO" visible="showModal">
+    <div class="modal fade" id="MyModal" role="dialog" arial-labelledby="MyModalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 style="text-align:center;">Documento</h1>
+          </div>
         <form class="form-horizontal" name="frmHistorico" id="frmHistorico" novalidate>
             <div class="form-group">
                 <label for="id_tipologia" class="col-sm-2 control-label">Tipología:</label>
@@ -229,17 +239,13 @@
                     <textarea class="form-control" id="descripcion_historico" name="descripcion_historico" ng-model="historico.descripcion" rows="3" ng-maxlength="100" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s\. ñáéíóú ÑÁÉÍÓÚ]*$/"></textarea>
                     <span class="glyphicon form-control-feedback" ng-class="cssIcono(frmHistorico.descripcion_historico)"></span>
                 </div>
-                <p ng-show="frmHistorico.descripcion_historico.$error.minlength" class="help-block col-lg-offset-2 errorRequerido">El mínimo es de 3</p>
-                <p ng-show="frmHistorico.descripcion_historico.$error.maxlength" class="help-block col-lg-offset-2 errorRequerido">El máximo es de 100</p>
-            </div>
+              </div>
             <div class="form-group has-feedback" ng-class="cssInput(frmHistorico.observacion_historico)">
                 <label for="observacion_historico" class="col-sm-2 control-label">Observación:</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="observacion_historico" name="observacion_historico" ng-model="historico.observaciones" rows="3" ng-maxlength="100" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s\. ñáéíóú ÑÁÉÍÓÚ]*$/"></textarea>
                     <span class="glyphicon form-control-feedback" ng-class="cssIcono(frmHistorico.observacion_historico)"></span>
                 </div>
-                <p ng-show="frmHistorico.observacion_historico.$error.minlength" class="help-block col-lg-offset-2 errorRequerido">El mínimo es de 3</p>
-                <p ng-show="frmHistorico.observacion_historico.$error.maxlength" class="help-block col-lg-offset-2 errorRequerido">El máximo es de 100</p>
             </div>
             <div class="row">
                 <div class="form-group col-sm-6">
@@ -286,6 +292,11 @@
                 <button type="submit" class="btn btn-primary" title="Guardar" ng-click="guardarHistorico(frmHistorico)"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
                 <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cerrar"><span class="glyphicon glyphicon-ban-circle"></span> Cerrar</button>
             </div>
+
         </form>
-    </modal>
+      </div>
+
+        </div>
+    </div>
+
 </div>
