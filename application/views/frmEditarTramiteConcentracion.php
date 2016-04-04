@@ -176,8 +176,7 @@
               <select class="form-control" id="documentosS" onchange="adddocs(this)">
                 <option value="">Documentos</option>
                 <?php foreach ($docs as $key): ?>
-
-                  <option value="<?php echo $key->descripcion ?>"><?php echo $key->descripcion ?></option>
+                  <option value="<?php echo $key->codigo ?>"><?php echo $key->descripcion ?></option>
                 <?php endforeach; ?>
               </select>
             </div>
@@ -191,12 +190,15 @@
                     </tr>
                 </thead>
                 <tbody id="tbodyDoc">
-                    <tr>
+                      <?php if ($result->archivo_expediente != null && !empty($result->archivo_expediente)): ?>
+                      <tr>
                         <td><?php echo $result->archivo_expediente?></td>
                         <td><button data-toggle="modal" data-target="#MyModal"type="button" title="Describir Documento" class="btn btn-primary glyphicon glyphicon-list-alt"></button>
                             <span><button ng-click="remover_documento($index)" type="button" title="Eliminar Documento" class="btn btn-danger glyphicon glyphicon-remove"></button></span>
                         </td>
-                    </tr>
+                      </tr>
+                      <?php endif; ?>
+
                 </tbody>
             </table>
         </div>
@@ -216,12 +218,14 @@
           <div class="modal-header">
             <h1 style="text-align:center;">Documento</h1>
           </div>
+          <div class="modal-body"  style="margin:20px">
+
         <form class="form-horizontal" name="frmHistorico" id="frmHistorico" novalidate>
             <div class="form-group">
                 <label for="id_tipologia" class="col-sm-2 control-label">Tipología:</label>
                 <div class="col-sm-10">
                     <select class="form-control" ng-model="historico.id_tipologia" ng-options="item.id_tipologia as item.descripcion for item in tipologias" id="id_tipologia" name="id_tipologia">
-                        <option value="">Seleccione una tipología</option>
+                        <option value="">Tipología</option>
                     </select>
                 </div>
             </div>
@@ -229,7 +233,7 @@
                 <label for="id_municipio" class="col-sm-2 control-label">Cuidades:</label>
                 <div class="col-sm-10">
                     <select class="form-control" ng-model="historico.id_municipio" ng-options="item.id_municipio as item.descripcion for item in cuidades" id="id_municipio" name="id_municipio">
-                        <option value="">Seleccione una cuidad</option>
+                        <option value="">Ciudad</option>
                     </select>
                 </div>
             </div>
@@ -252,7 +256,7 @@
                     <label for="pestana" class="col-sm-4 control-label">Estado Físico:</label>
                     <div class="col-sm-8">
                         <select class="form-control" ng-model="historico.estado_fisico" ng-options="item.id as item.titulo for item in estado_fisico" id="estado_fisico" name="estado_fisico">
-                            <option value="">Seleccione un estado físico</option>
+                            <option value="">Estado físico</option>
                         </select>
                     </div>
                 </div>
@@ -260,7 +264,7 @@
                     <label for="pestana" class="col-sm-4 control-label">Medidas de papel:</label>
                     <div class="col-sm-8">
                         <select class="form-control" ng-model="historico.medida_papel" ng-options="item.id as item.titulo for item in medidas_papel" id="medidas_papel" name="medidas_papel">
-                            <option value="">Seleccione una medida</option>
+                            <option value="">Medida</option>
                         </select>
                     </div>
                 </div>
@@ -270,7 +274,7 @@
                     <label for="pestana" class="col-sm-4 control-label">Formato:</label>
                     <div class="col-sm-8">
                         <select class="form-control" ng-model="historico.formato" ng-options="item.id as item.titulo for item in formato" id="formato" name="formato">
-                            <option value="">Seleccione un formato</option>
+                            <option value="">Formato</option>
                         </select>
                     </div>
                 </div>
@@ -278,7 +282,7 @@
                     <label for="pestana" class="col-sm-4 control-label">Idioma:</label>
                     <div class="col-sm-8">
                         <select class="form-control" ng-model="historico.idioma" ng-options="item.id as item.titulo for item in idioma" id="idioma" name="idioma">
-                            <option value="">Seleccione un idioma</option>
+                            <option value="">Idioma</option>
                         </select>
                     </div>
                 </div>
@@ -287,6 +291,7 @@
                 <div class="col-sm-6">
                     <input type="file" id="inputPDf" name="inputPDF" class="btn btn-primary" accept="application/pdf">
                 </div>
+            </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" title="Guardar" ng-click="guardarHistorico(frmHistorico)"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>

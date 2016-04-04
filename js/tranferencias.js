@@ -108,6 +108,12 @@ function transferirRev()
 
 function adddocs(event)
 {
-  var html = '<tr><td>'+event.value+'</td>/tr>' ;
+  var opcion_seleccionada = $("#documentosS option:selected").text();
+  var html = '<tr><td id="td'+event.value+'">'+opcion_seleccionada+'</td>/tr>'+'<td><button data-toggle="modal" data-target="#MyModal" type="button" class="btn btn-primary glyphicon glyphicon-list-alt"></button><span><button onclick ="deletea($(this))" type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></span></td>';
   $("#tbodyDoc").append(html);
+}
+
+function deletea(row)
+{
+  row.closest('tr').remove();
 }
